@@ -18,9 +18,9 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 
 Route::controller(InventoryController::class)->group(function (){
     Route::get('getInventory','getInventory');    
@@ -32,6 +32,7 @@ Route::controller(SellController::class)->group(function (){
 
 Route::controller(UserController::class)->group(function (){
     Route::get('getUser','getUser');    
+    Route::get('/','index');    
 });
 
 Route::controller(StorageController::class)->group(function (){
