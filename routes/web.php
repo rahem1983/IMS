@@ -27,18 +27,22 @@ Route::controller(InventoryController::class)->group(function (){
 });
 
 Route::controller(SellController::class)->group(function (){
-    Route::get('getSell','getSell');    
+    Route::get('getSell','getSell'); 
+    Route::get('/sell','Sell'); 
 });
 
 Route::controller(UserController::class)->group(function (){
     Route::get('getUser','getUser');    
-    Route::get('/','index');    
 });
 
 Route::controller(StorageController::class)->group(function (){
+    Route::get('/stocks','Stock'); 
     Route::get('getStorage','getStorage');    
 });
 
 Route::controller(ProductController::class)->group(function (){
-    Route::get('getProduct','getProduct');    
+    Route::get('getProduct','getProduct');
+    Route::get('/','index');    
+    Route::get('deleteProduct/{id}','deleteProduct');
+
 });

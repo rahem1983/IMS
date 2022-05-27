@@ -30,16 +30,22 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="#">IMS</a>
+                <a class="navbar-brand" href="/">IMS</a>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" aria-current="page" href="/">Products</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="sell">Sells</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link" href="stocks" tabindex="-1" aria-disabled="true">Stock</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="getInventory" tabindex="-1" aria-disabled="true">Inventory</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Due</a>
                   </li>
                 </ul>
                 <form class="d-flex">

@@ -11,6 +11,7 @@ class InventoryController extends Controller
     public function getInventory()
     {
         $inv = Inventory::all();
-        return $inv;
+        return view('inventories',['inventory'=>$inv]);
+        
     }
 }

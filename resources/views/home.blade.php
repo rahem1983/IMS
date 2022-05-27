@@ -1,6 +1,8 @@
 @extends('layout.master')
 @section('content')
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
     #product {
       left: 10;
@@ -8,6 +10,9 @@
       width: 100%;
 
     }
+    .R1{
+   float:right;
+}
 </style>
 
 {{-- product table  --}}
@@ -16,7 +21,7 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">id</th>
             <th scope="col">Name</th>
             <th scope="col">Price</th>
             <th scope="col">Supplier</th>
@@ -39,6 +44,8 @@
                 @else
                 <td class="text-success">{{$item->amount_in_stock}}</td>
                 @endif
+                <td><a href="deleteProduct/{{$item->id}}"><button type="button" class="btn btn-danger">Remove</button></a></td>
+
               </tr>
             @endforeach
 {{--           
@@ -62,62 +69,63 @@
       </table>
 </div>
 
+<div class="container pt-5 mt-3 ">
+  <p>Remember product id to edit</p>
+  
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal1">
+    Add Product
+  </button>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal2">
+    Edit Product
+  </button>
+</div>
 
-{{-- storage detail --}}
-<div class="container-sm pt-3" id="product">
-    <h3 class="pt-3 text-center">Sells Details</h3>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Produt</th>
-            <th scope="col">Buyer</th>
-            <th scope="col">Delivery Guy</th>
-            <th scope="col">Delivering time</th>
-            <th scope="col">Receiving time</th>
-            <th scope="col">Total</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-            @php
-                $j = 1;
-            @endphp
-            @foreach ($sell as $item)
-            
-            <tr>
-                <th scope="row">{{$j}}</th>
-                <td>{{$item->name}}</td>
-                <td>{{$item->end_client_name}}</td>
-                <td>{{$item->delivery_name}}</td>
-                <td>{{$item->delivery_time}}</td>
-                <td>{{$item->end_client_receive_time}}</td>
-                <td>{{$item->total}}</td>
-              </tr>
-              @php
-                $j++;
-            @endphp
-            @endforeach
-          
-          {{-- <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Mark</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Mark</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr> --}}
-        </tbody>
-      </table>
+<!-- The Modal -->
+<div class="modal" id="myModal1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add Product</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action=""></form>
+      </div>
+
+      <!-- Modal footer -->
+      {{-- <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div> --}}
+
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="myModal2">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Product</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      {{-- <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div> --}}
+
+    </div>
+  </div>
 </div>
 @endsection

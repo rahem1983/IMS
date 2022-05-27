@@ -12,4 +12,10 @@ class StorageController extends Controller
         $stor = Storage::all();
         return $stor;
     }
+
+    public function Stock()
+    {
+        $storage = Storage::join('products', 'products.id', '=', 'storages.product_id')->select('storages.*', 'products.*')->get();
+        return view('stocks',['storage'=>$storage]);
+    }
 }
