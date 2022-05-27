@@ -24,6 +24,9 @@ use App\Http\Controllers\ProductController;
 
 Route::controller(InventoryController::class)->group(function (){
     Route::get('getInventory','getInventory');    
+    Route::post('/addInventory','addInventory');    
+    Route::post('/editInventory','editInventory');    
+    Route::get('deleteInventory/{id}','deleteInventory');
 });
 
 Route::controller(SellController::class)->group(function (){
@@ -38,6 +41,8 @@ Route::controller(UserController::class)->group(function (){
 Route::controller(StorageController::class)->group(function (){
     Route::get('/stocks','Stock'); 
     Route::get('getStorage','getStorage');    
+    Route::post('/editStorage','editStorage');    
+
 });
 
 Route::controller(ProductController::class)->group(function (){

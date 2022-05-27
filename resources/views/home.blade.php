@@ -187,7 +187,7 @@
               <label for="name" class="form-label">Product Details</label>
               <textarea class="form-control" name="details" id="details" ></textarea>
             </div>
-            <button type="submit" class="btn btn-success">Edit</button>
+            <button type="submit" class="btn btn-outline-secondary">Edit</button>
           
         </form>
       </div>
