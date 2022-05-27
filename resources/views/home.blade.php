@@ -70,7 +70,7 @@
 </div>
 
 <div class="container pt-5 mt-3 ">
-  <p class="text-danger">Remember product id to edit</p>
+  <p class="text-danger">Remember product ID to edit</p>
   
   <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#myModal1">
     Add Product
@@ -95,10 +95,11 @@
       <div class="modal-body">
         <form action="/addProduct" method="POST">
           @csrf
-            <div class="mb-3">
-              <label for="name" class="form-label">Product Name</label>
-              <input type="text" id="name" name="name" class="form-control" required>
-            </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Product Name</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+          </div>
 
             <div class="mb-3">
               <label for="unit_price" class="form-label">Price</label>
@@ -157,41 +158,36 @@
       <div class="modal-body">
         <form action="/editProduct" method="POST">
           @csrf
+          <div class="mb-3">
+            <label for="id" class="form-label">Product ID</label>
+            <input type="number" id="id" name="id" class="form-control" min="0" required>
+          </div>
+
             <div class="mb-3">
               <label for="name" class="form-label">Product Name</label>
-              <input type="text" id="name" name="name" class="form-control" required>
+              <input type="text" id="name" name="name" class="form-control" >
             </div>
 
             <div class="mb-3">
               <label for="unit_price" class="form-label">Price</label>
-              <input type="text" id="unit_price" name="unit_price" class="form-control" required>
+              <input type="text" id="unit_price" name="unit_price" class="form-control" >
             </div>
 
             <div class="mb-3">
               <label for="suppliers" class="form-label">Supplier Name</label>
-              <input type="text" id="suppliers" name="suppliers" class="form-control" required>
+              <input type="text" id="suppliers" name="suppliers" class="form-control" >
             </div>
 
             <div class="mb-3">
               <label for="vendors" class="form-label">Vendor Name</label>
-              <input type="text" id="vendors" name="vendors" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-              <label for="amount_in_stock" class="form-label">Amount to stock</label>
-              <input type="text" id="amount_in_stock" name="amount_in_stock" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-              <label for="exp_date" class="form-label">Expiry Date <small> (If Required) </small></label>
-              <input type="date" id="exp_date" name="exp_date" class="form-control">
+              <input type="text" id="vendors" name="vendors" class="form-control" >
             </div>
 
             <div class="mb-3">
               <label for="name" class="form-label">Product Details</label>
-              <textarea class="form-control" name="details" id="details" required></textarea>
+              <textarea class="form-control" name="details" id="details" ></textarea>
             </div>
-            <button type="submit" class="btn btn-success">Add</button>
+            <button type="submit" class="btn btn-success">Edit</button>
           
         </form>
       </div>

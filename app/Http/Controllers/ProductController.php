@@ -55,4 +55,33 @@ class ProductController extends Controller
         return redirect('/');
 
     }
+
+    public function editProduct(Request $req)
+    {
+        $pro = Product::where('id', $req->id)->first();
+
+        if ($req->name) {
+            $pro->name = $req->name;
+        }
+        
+        if ($req->details) {
+            $pro->details = $req->details;
+        }
+        
+        if ($req->unit_price) {
+            $pro->unit_price = $req->unit_price;
+        }
+        
+        if ($req->suppliers) {
+            $pro->suppliers = $req->suppliers;
+        }
+        
+        if ($req->vendors) {
+            $pro->vendors = $req->vendors;
+        }
+
+        $pro->save();
+        return redirect('/');
+    }
+
 }
