@@ -44,7 +44,7 @@
                 @else
                 <td class="text-success">{{$item->amount_in_stock}}</td>
                 @endif
-                <td><a href="deleteProduct/{{$item->id}}"><button type="button" class="btn btn-danger">Remove</button></a></td>
+                <td><a href="deleteProduct/{{$item->id}}"><button type="button" class="btn btn-outline-danger">Remove</button></a></td>
 
               </tr>
             @endforeach
@@ -70,19 +70,19 @@
 </div>
 
 <div class="container pt-5 mt-3 ">
-  <p>Remember product id to edit</p>
+  <p class="text-danger">Remember product id to edit</p>
   
-  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal1">
+  <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#myModal1">
     Add Product
   </button>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal2">
+  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#myModal2">
     Edit Product
   </button>
 </div>
 
 <!-- The Modal -->
 <div class="modal" id="myModal1">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
 
       <!-- Modal Header -->
@@ -93,7 +93,45 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form action=""></form>
+        <form action="/addProduct" method="POST">
+          @csrf
+            <div class="mb-3">
+              <label for="name" class="form-label">Product Name</label>
+              <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="unit_price" class="form-label">Price</label>
+              <input type="text" id="unit_price" name="unit_price" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="suppliers" class="form-label">Supplier Name</label>
+              <input type="text" id="suppliers" name="suppliers" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="vendors" class="form-label">Vendor Name</label>
+              <input type="text" id="vendors" name="vendors" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="amount_in_stock" class="form-label">Amount to stock</label>
+              <input type="text" id="amount_in_stock" name="amount_in_stock" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="exp_date" class="form-label">Expiry Date <small> (If Required) </small></label>
+              <input type="date" id="exp_date" name="exp_date" class="form-control">
+            </div>
+
+            <div class="mb-3">
+              <label for="name" class="form-label">Product Details</label>
+              <textarea class="form-control" name="details" id="details" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Add</button>
+          
+        </form>
       </div>
 
       <!-- Modal footer -->
@@ -117,7 +155,45 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        Modal body..
+        <form action="/editProduct" method="POST">
+          @csrf
+            <div class="mb-3">
+              <label for="name" class="form-label">Product Name</label>
+              <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="unit_price" class="form-label">Price</label>
+              <input type="text" id="unit_price" name="unit_price" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="suppliers" class="form-label">Supplier Name</label>
+              <input type="text" id="suppliers" name="suppliers" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="vendors" class="form-label">Vendor Name</label>
+              <input type="text" id="vendors" name="vendors" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="amount_in_stock" class="form-label">Amount to stock</label>
+              <input type="text" id="amount_in_stock" name="amount_in_stock" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="exp_date" class="form-label">Expiry Date <small> (If Required) </small></label>
+              <input type="date" id="exp_date" name="exp_date" class="form-control">
+            </div>
+
+            <div class="mb-3">
+              <label for="name" class="form-label">Product Details</label>
+              <textarea class="form-control" name="details" id="details" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Add</button>
+          
+        </form>
       </div>
 
       <!-- Modal footer -->

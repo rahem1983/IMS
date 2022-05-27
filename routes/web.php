@@ -43,6 +43,7 @@ Route::controller(StorageController::class)->group(function (){
 Route::controller(ProductController::class)->group(function (){
     Route::get('getProduct','getProduct');
     Route::get('/','index');    
+    Route::post('/addProduct','addProduct');    
     Route::get('deleteProduct/{id}','deleteProduct');
 
 });

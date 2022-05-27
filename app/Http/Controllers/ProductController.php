@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Storage;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
@@ -27,5 +28,31 @@ class ProductController extends Controller
         return redirect('/');
     }
 
-    
+    public function addProduct(Request $req)
+    {
+        $pro = new Product;
+
+        $date = Carbon::now()->format('Y/m/d');
+
+        $pro->name = $req->name;
+        $pro->details = $req->details;
+        $pro->unit_price = $req->unit_price;
+        $pro->suppliers = $req->suppliers;
+        $pro->vendors = $req->vendors;
+
+        $pro->save();
+
+        $stor = new Storage;
+
+        $stor->product_id = $pro->id;
+        $stor->amount_in_stock = $req->amount_in_stock;
+        $stor->last_arrival = $date;
+
+        if ($req->exp_date) {
+            $stor->exp_date = $req->exp_date;
+        }
+        $stor->save();
+        return redirect('/');
+
+    }
 }
